@@ -1,0 +1,28 @@
+package com.hd.spring.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.hd.spring.dao.EmployeeDao;
+import com.hd.spring.entity.Employee;
+
+public class EmployeeDaoImpl implements EmployeeDao {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	@Override
+	public List<Employee> getEnEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee getEmployee(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

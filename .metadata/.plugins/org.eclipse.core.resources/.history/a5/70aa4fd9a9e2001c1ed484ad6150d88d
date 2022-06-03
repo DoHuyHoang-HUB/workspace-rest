@@ -1,0 +1,5 @@
+package com.hd.spring.rest;
+
+public class EmployeeRestExceptionHandler {
+
+}

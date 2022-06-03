@@ -1,0 +1,15 @@
+package com.hd.spring.entity;
+
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class ExceptionJSONInfo {
+	private int status;
+	private String message;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+	private LocalDateTime timeStamp;
+	
+	
+	
+}

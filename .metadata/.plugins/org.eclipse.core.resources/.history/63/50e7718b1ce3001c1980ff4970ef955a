@@ -1,0 +1,210 @@
+<%@page import="javax.servlet.jsp.tagext.Tag"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add employee</title>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" />
+<script
+	src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+<style type="text/css">
+body {
+	font-family: inherit;
+	font-size: 1.4rem;
+	line-height: 22px;
+}
+
+a {
+	text-decoration: none;
+}
+
+body img {
+	width: 100%;
+	height: auto;
+}
+
+body ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: sans-serif;
+	color: var(- -text-color);
+}
+
+.form-control {
+	height: 50px;
+}
+
+.form-control:focus+label {
+	padding: 0.5rem;
+}
+
+.main-form .form-card .form-floating label {
+	padding: 1rem 0.75rem;
+}
+
+.main-form .form-card .form-floating a.show-pass {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	color: #666;
+}
+
+.btn-login {
+	font-size: 1.4rem;
+	letter-spacing: 0.05rem;
+	padding: 0.75rem 1rem;
+}
+
+.btn-authorization-wrapper {
+	flex: 1;
+}
+
+.btn-authorization .btn-icon {
+	width: 36px;
+	height: 36px;
+	border-radius: 1px;
+	flex-shrink: 0;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.btn-authorization {
+	box-sizing: border-box;
+	outline: none;
+	border: 1px solid rgba(0, 0, 0, .26);
+	background-color: #fff;
+	color: rgba(0, 0, 0, .87);
+	border-radius: 2px;
+	width: 100%;
+	height: 40px;
+	font-size: 1.3rem;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	padding: 0 8px 0 2px;
+	flex: 1;
+	margin: 0.3125rem;
+}
+
+.btn-authorization .btn-icon .social-white-fb {
+	width: 22px;
+	height: 22px;
+	background-image: url(../imgs/Facebook_22px.png);
+}
+
+.btn-authorization .btn-icon .social-white-g {
+	width: 22px;
+	height: 22px;
+	background-size: cover;
+	background-position: center;
+	background-image: url(../imgs/Google.png);
+}
+
+.background-wrapper {
+	height: 100%;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.background-wrapper.background-login {
+	background-image: url(../imgs/clip-internet-security.png);
+}
+
+.background-wrapper.background-sign-up {
+	background-image: url(../imgs/clip-1062.png);
+}
+
+.hr-text {
+	line-height: 1em;
+	position: relative;
+	outline: 0;
+	border: 0;
+	color: black;
+	text-align: center;
+	height: auto;
+	background-color: transparent;
+	opacity: 0.5;
+}
+
+.hr-text {
+	display: flex;
+	align-items: center;
+	padding-bottom: 0.875rem;
+}
+
+.hr-text .hr {
+	height: 1px;
+	width: 100%;
+	background-color: #dbdbdb;
+	flex: 1;
+}
+
+.hr-text span {
+	color: #ccc;
+	padding: 0 1rem;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+}
+
+.group-form-row .form-floating:not(:last-child) {
+	margin-right: 0.6rem;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-7 col-lg-5 col-xl-4">
+				<form:form action="saveEmployee" modelAttribute="employee"
+					method="post">
+					<form:hidden path="id" />
+					<div class="form-floating mb-3">
+						<input type="text" class="form-control fs-4" name="firstName"
+							placeholder="First name" value="${employee.firstName }"
+							id="floatFirstName" /> <label for="floatFirstName">First
+							name</label>
+					</div>
+
+					<div class="form-floating mb-3">
+						<input type="text" class="form-control fs-4" name="lastName"
+							placeholder="Last name" value="${employee.lastName }"
+							id="floatLastname" /> <label for="floatLastname">Last
+							name</label>
+					</div>
+
+					<div class="form-floating mb-3">
+						<input type="email" class="form-control fs-4" name="email"
+							placeholder="example@email.com" value="${employee.email }"
+							id="floatEmail" /> <label for="floatEmail">Email</label>
+					</div>
+
+					<form:select class="form-control fs-4" path="department">
+						<form:option value="NONE">--SELECT--</form:option>
+						<form:options items="${departments}" />
+					</form:select>
+
+					<div class="d-grid">
+						<input type="submit" value="Save" class="btn btn-primary">
+					</div>
+				</form:form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

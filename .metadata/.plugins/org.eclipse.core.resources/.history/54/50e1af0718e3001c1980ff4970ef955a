@@ -1,0 +1,34 @@
+package com.hd.spring.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.hd.spring.entity.Employee;
+import com.hd.spring.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@GetMapping("/")
+	public String listCustomers(Model model) {
+		List<Employee> employees = employeeService.getEmployees();
+		
+		model.addAttribute("employees", employees);
+		
+		return "list-employee";
+	}
+	
+	@GetMapping("/showFormAddEmployee")
+	public String showFormAddEmployee(Model model) {
+		Employee employee = new Employee();
+		
+		model.addAttribute("employee", employee);
+		return employee;
+	}
+}

@@ -1,0 +1,5 @@
+package com.hd.spring.entity;
+
+public class ExceptionJSONInfo {
+
+}

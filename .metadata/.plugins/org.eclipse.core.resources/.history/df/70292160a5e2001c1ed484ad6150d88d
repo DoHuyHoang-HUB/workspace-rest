@@ -1,0 +1,9 @@
+package com.hd.spring.entity;
+
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "departments")
+public class Department {
+
+}

@@ -1,0 +1,5 @@
+package com.hd.spring.service.impl;
+
+public class DepartmentServiceImpl {
+
+}

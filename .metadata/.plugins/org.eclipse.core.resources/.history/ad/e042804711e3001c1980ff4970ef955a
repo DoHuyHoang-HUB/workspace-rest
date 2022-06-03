@@ -1,0 +1,38 @@
+package com.hd.spring.service.impl;
+
+import java.util.List;
+import java.util.logging.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.client.RestTemplate;
+
+import com.hd.spring.entity.Department;
+import com.hd.spring.service.DepartmentService;
+
+public class DepartmentServiceImpl implements DepartmentService {
+	
+	private RestTemplate restTemplate;
+	private String crmRestUrl;
+	private Logger logger = Logger.getLogger(getClass().getName());
+	
+	@Autowired
+	public EmployeeServiceImpl(RestTemplate restTemplate, @Value("${crm.rest.url}") String url) {
+		this.restTemplate = restTemplate;
+		this.crmRestUrl = url;
+		logger.info("Load property: crm.rest.url" + crmRestUrl);
+	}
+
+	@Override
+	public List<Department> getDepartments() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Department getDepartment(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

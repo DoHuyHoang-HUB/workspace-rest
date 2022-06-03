@@ -1,0 +1,74 @@
+<%@page import="javax.servlet.jsp.tagext.Tag"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add employee</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<style type="text/css">
+.form-control {
+	height: 50px;
+}
+
+.form-control:focus+label {
+	padding: 0.5rem;
+}
+
+.form-floating label {
+	padding: 1rem 0.75rem;
+}
+
+.btn-login {
+	font-size: 1.4rem;
+	letter-spacing: 0.05rem;
+	padding: 0.75rem 1rem;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-7 col-lg-5 col-xl-4">
+				<form:form action="saveEmployee" modelAttribute="employee"
+					method="post">
+					<form:hidden path="id" />
+					<div class="form-label-group mb-3">
+						<input type="text" class="form-control fs-4" name="firstName"
+							placeholder="First name" value="${employee.firstName }"
+							id="floatFirstName" /> <label for="floatFirstName">First
+							name</label>
+					</div>
+
+					<div class="form-label-group mb-3">
+						<input type="text" class="form-control fs-4" name="lastName"
+							placeholder="Last name" value="${employee.lastName }"
+							id="floatLastname" /> <label for="floatLastname">Last
+							name</label>
+					</div>
+
+					<div class="form-label-group mb-3">
+						<input type="email" class="form-control fs-4" name="email"
+							placeholder="example@email.com" value="${employee.email }"
+							id="floatEmail" /> <label for="floatEmail">Email</label>
+					</div>
+
+					<form:select class="form-control fs-4" path="department">
+						<form:option value="NONE">--SELECT--</form:option>
+						<form:options items="${departments}" />
+					</form:select>
+
+					<div class="d-grid">
+						<input type="submit" value="Save" class="btn btn-primary">
+					</div>
+				</form:form>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

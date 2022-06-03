@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+D:\DHCN\Java\Lap_trinh_www_java\BT\on-cuoi-ky\workspace-rest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3853694664.index
+\spring-rest-client\src\main\java
